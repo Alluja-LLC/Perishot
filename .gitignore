@@ -4,3 +4,13 @@ DerivedData/
 *.xcuserstate
 xcuserdata/
 *.xcarchive
+
+# Credentials — notarization uses the keychain, so none of these belong here.
+.env
+.env.*
+*.p8
+*.p12
+*.cer
+*.certSigningRequest
+*.provisionprofile
+*.mobileprovision

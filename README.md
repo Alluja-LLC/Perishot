@@ -66,13 +66,18 @@ distributable zip. One-time setup:
 
 1. Create a **Developer ID Application** certificate: Xcode → Settings → Accounts → Alluja LLC →
    Manage Certificates → + (requires Account Holder or Admin on the team).
-2. Store notarization credentials:
+2. Store notarization credentials in the keychain, using an app-specific password from
+   [appleid.apple.com](https://appleid.apple.com) (an account password will not work):
    ```sh
    xcrun notarytool store-credentials perishot-notary \
      --apple-id <apple-id> --team-id Z74U5327X4 --password <app-specific-password>
    ```
+   For CI, store an App Store Connect API key instead — `--key AuthKey_XXX.p8 --key-id <id>
+   --issuer <uuid>` — and keep the `.p8` outside the repository.
 
-Then `./scripts/release.sh`.
+Then `./scripts/release.sh`. The script only references the profile *name*; the credentials
+themselves stay in the keychain and never touch the working tree. Override the defaults with
+`TEAM_ID` and `KEYCHAIN_PROFILE` if you fork this.
 
 Notarization checks signing and scans for malware; it does not review API usage, so the private
 framework dependency does not affect it.
