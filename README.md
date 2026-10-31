@@ -69,7 +69,7 @@ distributable zip. One-time setup:
 2. Store notarization credentials in the keychain, using an app-specific password from
    [appleid.apple.com](https://appleid.apple.com) (an account password will not work):
    ```sh
-   xcrun notarytool store-credentials perishot-notary \
+   xcrun notarytool store-credentials alluja-notary \
      --apple-id <apple-id> --team-id Z74U5327X4 --password <app-specific-password>
    ```
    For CI, store an App Store Connect API key instead — `--key AuthKey_XXX.p8 --key-id <id>

@@ -8,7 +8,7 @@
 set -euo pipefail
 
 TEAM_ID="${TEAM_ID:-Z74U5327X4}"
-KEYCHAIN_PROFILE="${KEYCHAIN_PROFILE:-perishot-notary}"
+KEYCHAIN_PROFILE="${KEYCHAIN_PROFILE:-alluja-notary}"
 SCHEME="perishot"
 APP_NAME="perishot.app"
 
